@@ -1,0 +1,50 @@
+name: 'Composer Diff'
+description: 'Compare composer.lock files and generate human-readable list of package changes'
+author: 'Ion Bazan'
+branding:
+  color: yellow
+  icon: package
+inputs:
+  base:
+    description: 'Base composer.lock file path or git ref '
+    required: true
+    default: ${{ github.event.pull_request.base.sha }}
+  target:
+    description: 'Target composer.lock file path or git ref'
+    required: true
+    default: 'composer.lock'
+  format:
+    description: 'Output format (mdtable, mdlist, json)'
+    required: true
+    default: 'mdtable'
+  no-dev:
+    description: 'Exclude dev dependencies'
+    required: false
+  no-prod:
+    description: 'Exclude prod dependencies'
+    required: false
+  with-platform:
+    description: 'Include platform dependencies'
+    required: false
+  with-links:
+    description: 'Include compare/release URLs'
+    required: false
+  extra-arguments:
+    description: 'Additional arguments passed to composer diff command'
+    required: true
+    default: '--ansi'
+outputs:
+  composer_diff:
+    description: 'Diff output - use it to create a PR comment '
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - '--base=${{ inputs.base }}'
+    - '--target=${{ inputs.target }}'
+    - '--format=${{ inputs.format }}'
+    - ${{ inputs.no-dev && '--no-dev' || '' }}
+    - ${{ inputs.no-prod && '--no-prod' || '' }}
+    - ${{ inputs.with-platform && '--with-platform' || '' }}
+    - ${{ inputs.with-links && '--with-links' || '' }}
+    - ${{ inputs.extra-arguments }}

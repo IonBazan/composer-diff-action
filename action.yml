@@ -17,6 +17,9 @@ inputs:
     description: 'Output format (mdtable, mdlist, json)'
     required: true
     default: 'mdtable'
+  strict:
+    description: 'Exit with non-zero status code if there are any changes'
+    required: false
   no-dev:
     description: 'Exclude dev dependencies'
     required: false
@@ -47,4 +50,5 @@ runs:
     - ${{ inputs.no-prod && '--no-prod' || '' }}
     - ${{ inputs.with-platform && '--with-platform' || '' }}
     - ${{ inputs.with-links && '--with-links' || '' }}
+    - ${{ inputs.strict && '--strict' || '' }}
     - ${{ inputs.extra-arguments }}

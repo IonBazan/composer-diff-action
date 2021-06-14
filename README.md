@@ -14,7 +14,10 @@ _You may set it to `1` if you want to compare only with the previous commit._
 
 ```yaml
 name: Composer Diff
-on: [pull_request]
+on:
+  pull_request:
+    paths:
+      - 'composer.lock'
 jobs:
   composer-diff:
     name: Composer Diff
@@ -52,6 +55,7 @@ This action takes same input arguments as the [composer-diff command](https://gi
 
   Follows same convention as `base` argument
 - `format` - output format - either `mdtable`, `mdlist` or `json` - see [composer-diff documentation](https://github.com/IonBazan/composer-diff#usage) - default: `mdtable`
+- `strict` - returns non-zero exit code if there are any changes - default: `false`
 - `no-dev` - excludes dev dependencies - default: `false`
 - `no-prod` - excludes prod dependencies - default: `false`
 - `with-platform` - include platform (`php`, `ext-*`) dependencies - default: `false`

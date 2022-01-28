@@ -5,8 +5,8 @@ LABEL "homepage"="http://github.com/IonBazan"
 LABEL "maintainer"="Ion Bazan <ion.bazan@gmail.com>"
 LABEL "description"="Compares composer.lock changes and generates Markdown report so you can use it in PR description."
 
-RUN composer global config allow-plugins.ion-bazan/composer-diff true && 
-    composer global require ion-bazan/composer-diff
+RUN composer global config allow-plugins.ion-bazan/composer-diff true \
+    && composer global require ion-bazan/composer-diff
 
 COPY entrypoint.sh /entrypoint.sh
 

@@ -3,9 +3,9 @@
 set -e
 
 OUTPUT=$(composer diff --strict $*)
-RESULT=$?
+EXIT_CODE=$?
 
-if [ $RESULT -eq 0 ]; then
+if [ $EXIT_CODE -eq 0 ]; then
   echo "::set-output name=composer_diff::"
 else
   echo "$OUTPUT"
@@ -18,4 +18,4 @@ else
   echo "::set-output name=composer_diff::$OUTPUT"
 fi
 
-echo "::set-output name=composer_diff_result::$RESULT"
+echo "::set-output name=composer_diff_exit_code::$EXIT_CODE"

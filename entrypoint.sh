@@ -17,6 +17,6 @@ echo -n "::set-output name=composer_diff::$OUTPUT"
 
 echo "::set-output name=composer_diff_exit_code::$EXIT_CODE"
 
-if [[ "--strict" =~ .*"$ARGS".* ]]; then
+if [[ "$*" == "--strict" ]]; then
   exit $EXIT_CODE
 fi

@@ -50,4 +50,5 @@ runs:
     - ${{ inputs.no-prod && '--no-prod' || '' }}
     - ${{ inputs.with-platform && '--with-platform' || '' }}
     - ${{ inputs.with-links && '--with-links' || '' }}
+    - ${{ inputs.strict && '--strict' || '' }}
     - ${{ inputs.extra-arguments }}

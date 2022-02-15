@@ -57,13 +57,12 @@ This action takes same input arguments as the [composer-diff command](https://gi
 
   Follows same convention as `base` argument
 - `format` - output format - either `mdtable`, `mdlist` or `json` - see [composer-diff documentation](https://github.com/IonBazan/composer-diff#usage) - default: `mdtable`
+- `strict` - returns non-zero exit code if there are any changes - default: `false`
 - `no-dev` - excludes dev dependencies - default: `false`
 - `no-prod` - excludes prod dependencies - default: `false`
 - `with-platform` - include platform (`php`, `ext-*`) dependencies - default: `false`
 - `with-links` - adds compare/release URLs - default: `false`
 - `extra-arguments` - additional arguments to be passed to the command - default: `--ansi` (for colorful output)
-
-This actions always run in a `strict` mode, so the result of the command execution is available further on. 
 
 ## Outputs
 

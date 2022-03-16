@@ -38,7 +38,9 @@ inputs:
     default: '--ansi'
 outputs:
   composer_diff:
-    description: 'Diff output - use it to create a PR comment '
+    description: 'Diff output - use it to create a PR comment'
+  composer_diff_exit_code:
+    description: 'Result of command (exit code) - use it to check the status'
 runs:
   using: 'docker'
   image: 'Dockerfile'

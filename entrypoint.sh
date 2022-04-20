@@ -1,5 +1,7 @@
 #!/bin/bash
 
+git config --global --add safe.directory "$GITHUB_WORKSPACE"
+
 ARGS=$*
 OUTPUT=$(composer diff --strict $ARGS)
 EXIT_CODE=$?

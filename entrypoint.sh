@@ -15,9 +15,8 @@ OUTPUT="${OUTPUT//'%'/'%25'}"
 OUTPUT="${OUTPUT//$'\n'/'%0A'}"
 OUTPUT="${OUTPUT//$'\r'/'%0D'}"
 
-echo -n "::set-output name=composer_diff::$OUTPUT"
-
 echo "::set-output name=composer_diff_exit_code::$EXIT_CODE"
+echo -n "::set-output name=composer_diff::$OUTPUT"
 
 if [[ "$*" == *"--strict"* ]]; then
   exit $EXIT_CODE

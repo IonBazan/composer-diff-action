@@ -35,7 +35,7 @@ inputs:
   extra-arguments:
     description: 'Additional arguments passed to composer diff command'
     required: true
-    default: '--ansi'
+    default: '--no-ansi'
 outputs:
   composer_diff:
     description: 'Diff output - use it to create a PR comment'

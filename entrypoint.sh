@@ -15,8 +15,8 @@ OUTPUT="${OUTPUT//'%'/'%25'}"
 OUTPUT="${OUTPUT//$'\n'/'%0A'}"
 OUTPUT="${OUTPUT//$'\r'/'%0D'}"
 
-echo "::set-output name=composer_diff_exit_code::$EXIT_CODE"
-echo -n "::set-output name=composer_diff::$OUTPUT"
+echo "composer_diff_exit_code=$EXIT_CODE" >> $GITHUB_OUTPUT
+echo -n "composer_diff=$OUTPUT" >> $GITHUB_OUTPUT
 
 if [[ "$*" == *"--strict"* ]]; then
   exit $EXIT_CODE

@@ -88,3 +88,18 @@ steps:
       diff: ${{ steps.composer_diff.outputs.composer_diff }}
 ```
 
+## Usage with push or schedule triggered workflows
+
+This action is intended to be used with Pull Requests, hence `base` defaults to `${{ github.event.pull_request.base.sha }} ` which produces an empty string for runs triggered without a PR. This may cause issues when running it in a workflow triggered with a push or cron, producing an empty diff as `composer-diff` will use same file for base and head (see https://github.com/IonBazan/composer-diff-action/issues/9). 
+
+To prevent this from happening, set `base` parameter to `HEAD` (or any other git reference):
+
+```yml
+      - name: Generate composer diff
+        id: composer_diff # To reference the output in comment
+        uses: IonBazan/composer-diff-action@v1
+        with: 
+          base: HEAD
+          no-dev: true
+          format: mdlist
+```

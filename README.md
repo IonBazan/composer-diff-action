@@ -62,6 +62,7 @@ This action takes same input arguments as the [composer-diff command](https://gi
 - `no-prod` - excludes prod dependencies - default: `false`
 - `with-platform` - include platform (`php`, `ext-*`) dependencies - default: `false`
 - `with-links` - adds compare/release URLs - default: `false`
+- `with-licenses` - adds license information - default: `false`
 - `extra-arguments` - additional arguments to be passed to the command - default: `--ansi` (for colorful output)
 
 ## Outputs

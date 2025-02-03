@@ -32,6 +32,9 @@ inputs:
   with-links:
     description: 'Include compare/release URLs'
     required: false
+  with-licenses:
+    description: 'Include license information'
+    required: false
   extra-arguments:
     description: 'Additional arguments passed to composer diff command'
     required: true
@@ -52,5 +55,6 @@ runs:
     - ${{ inputs.no-prod && '--no-prod' || '' }}
     - ${{ inputs.with-platform && '--with-platform' || '' }}
     - ${{ inputs.with-links && '--with-links' || '' }}
+    - ${{ inputs.with-licenses && '--with-licenses' || '' }}
     - ${{ inputs.strict && '--strict' || '' }}
     - ${{ inputs.extra-arguments }}

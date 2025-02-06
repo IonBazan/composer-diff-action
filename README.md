@@ -60,6 +60,7 @@ This action takes same input arguments as the [composer-diff command](https://gi
 - `strict` - returns non-zero exit code if there are any changes - default: `false`
 - `no-dev` - excludes dev dependencies - default: `false`
 - `no-prod` - excludes prod dependencies - default: `false`
+- `direct` - only show direct dependencies - default: `false`
 - `with-platform` - include platform (`php`, `ext-*`) dependencies - default: `false`
 - `with-links` - adds compare/release URLs - default: `false`
 - `with-licenses` - adds license information - default: `false`

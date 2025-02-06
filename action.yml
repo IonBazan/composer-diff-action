@@ -26,6 +26,9 @@ inputs:
   no-prod:
     description: 'Exclude prod dependencies'
     required: false
+  direct:
+    description: 'Only show direct dependencies'
+    required: false
   with-platform:
     description: 'Include platform dependencies'
     required: false
@@ -53,6 +56,7 @@ runs:
     - '--format=${{ inputs.format }}'
     - ${{ inputs.no-dev && '--no-dev' || '' }}
     - ${{ inputs.no-prod && '--no-prod' || '' }}
+    - ${{ inputs.direct && '--direct' || '' }}
     - ${{ inputs.with-platform && '--with-platform' || '' }}
     - ${{ inputs.with-links && '--with-links' || '' }}
     - ${{ inputs.with-licenses && '--with-licenses' || '' }}

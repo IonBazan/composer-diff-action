@@ -38,6 +38,9 @@ inputs:
   with-licenses:
     description: 'Include license information'
     required: false
+  with-metadata:
+    description: 'Also report changes to package types and references, even if versions are the same'
+    required: false
   filter:
     description: 'Limit output to packages matching given glob pattern(s), one per line'
     required: false
@@ -66,6 +69,7 @@ runs:
     - ${{ inputs.with-platform && '--with-platform' || '' }}
     - ${{ inputs.with-links && '--with-links' || '' }}
     - ${{ inputs.with-licenses && '--with-licenses' || '' }}
+    - ${{ inputs.with-metadata && '--with-metadata' || '' }}
     - ${{ inputs.strict && '--strict' || '' }}
     - ${{ inputs.sort && format('--sort={0}', inputs.sort) || '' }}
     - ${{ inputs.extra-arguments }}

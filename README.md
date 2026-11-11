@@ -58,6 +58,7 @@ This action takes same input arguments as the [composer-diff command](https://gi
 - `with-platform` - include platform (`php`, `ext-*`) dependencies - default: `false`
 - `with-links` - adds compare/release URLs - default: `false`
 - `with-licenses` - adds license information - default: `false`
+- `with-metadata` - also reports packages whose version is the same but whose type or source/dist reference changed, such as a moved tag - see [composer-diff documentation](https://github.com/IonBazan/composer-diff#metadata-changes) - default: `false`
 - `filter` - limit output to packages matching glob pattern(s), one per line - default: none
 
   ```yaml

@@ -27,6 +27,26 @@ When composer-diff gains or changes a command option, keep these in sync in the 
 4. Make sure the composer-diff version installed by the `Dockerfile` supports the option. A new option only works once
    it is released in a version matching that constraint.
 
+## Releases
+
+Users reference the action by major version (`IonBazan/composer-diff-action@v2`), so every release moves the major and
+minor tags along with the new patch tag. All three point to the same commit. For example, releasing `v2.1.0` means:
+
+- create `v2.1.0`
+- create or move `v2.1`
+- move `v2`
+
+A `v2` branch also exists, so always use full tag refs:
+
+```shell
+git tag v2.1.0
+git tag -f v2.1
+git tag -f v2
+git push origin refs/tags/v2.1.0 refs/tags/v2.1 refs/tags/v2 --force
+```
+
+Only move tags when asked to release. Force-pushing tags changes what existing workflows run.
+
 ## Checks
 
 There is no test suite. Before committing, check that `action.yml` is valid YAML and that `entrypoint.sh` still passes
